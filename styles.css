@@ -6,6 +6,7 @@
 
 :root {
     --cell-size: 130px;
+    --mobile-cell-size: 100px;
     --mark-size: calc(var(--cell-size) * 0.9);
 }
 
@@ -14,16 +15,18 @@ body {
     /* background-color: white; */
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
+    overflow: hidden;
 }
 
 .game-heading {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 5rem;
+    font-size: 8vw;
     height: 20vh;
     width: 100vw;
 }
+
 
 .board {
     width: 100vw;
@@ -167,6 +170,37 @@ body {
     border-color: white;
 }
 
-.winning-message.show{
+.winning-message.show {
     display: flex;
+}
+
+
+
+/* Media Queries */
+@media only screen and (max-width: 600px) {
+    :root {
+        --cell-size: var(--mobile-cell-size);
+    }
+    
+    .game-heading {
+        font-size: 12vw;
+        height: 10vh;
+    }
+    
+    .board {
+        height: 60vh;
+    }
+    
+    .cell {
+        width: var(--mobile-cell-size);
+        height: var(--mobile-cell-size);
+    }
+    
+    .winning-message {
+        font-size: 3.5rem;
+    }
+    
+    .winning-message button {
+        font-size: 2.5rem;
+    }
 }
